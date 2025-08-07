@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mboka Digital - Empowering Small Businesses Online</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body class="font-poppins bg-gray-900 text-white">
+  <!-- Glassmorphism Navbar -->
+  <nav class="navbar fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="logo-text text-2xl font-bold">
+          <span class="text-mboka-blue">MBOKA</span>
+          <span class="text-mboka-orange">DIGITAL</span>
+        </div>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="nav-link hover:text-mboka-orange transition">Home</a>
+        <a href="#services" class="nav-link hover:text-mboka-orange transition">Services</a>
+        <a href="#pricing" class="nav-link hover:text-mboka-orange transition">Pricing</a>
+        <a href="#contact" class="nav-link hover:text-mboka-orange transition">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button class="mobile-menu-button">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden bg-gray-800 bg-opacity-90 backdrop-blur-lg">
+      <a href="#home" class="block py-2 px-4 hover:bg-gray-700">Home</a>
+      <a href="#services" class="block py-2 px-4 hover:bg-gray-700">Services</a>
+      <a href="#pricing" class="block py-2 px-4 hover:bg-gray-700">Pricing</a>
+      <a href="#contact" class="block py-2 px-4 hover:bg-gray-700">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section min-h-screen flex items-center relative overflow-hidden">
+    <div class="container mx-auto px-6 z-10">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <span class="empowering-text">Empowering</span> Small Businesses Online
+        </h1>
+        <p class="text-xl mb-8 text-gray-300">
+          We create affordable, beautiful, and powerful websites for local businesses in Kenya and beyond.
+        </p>
+        <div class="quote-box p-6 mb-8 backdrop-blur-md bg-white bg-opacity-10 rounded-xl border border-white border-opacity-20 shadow-xl">
+          <p class="text-lg italic">"We don't just build websites. We build trust, visibility, and growth."</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#services" class="btn-primary px-8 py-3 rounded-full font-medium">Our Services</a>
+          <a href="#contact" class="btn-secondary px-8 py-3 rounded-full font-medium">Get Started</a>
+        </div>
+      </div>
+    </div>
+    <div class="floating-shapes">
+      <div class="shape-1"></div>
+      <div class="shape-2"></div>
+      <div class="shape-3"></div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 relative overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">💼 Our Services</h2>
+        <p class="max-w-2xl mx-auto text-gray-400">We offer comprehensive digital solutions tailored for small businesses</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Service Card 1 -->
+        <div class="service-card group">
+          <div class="icon-box bg-cyan-500">
+            <i class="fas fa-rocket text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Website Development</h3>
+          <p class="text-gray-400">Modern, mobile-friendly websites that showcase your business and attract customers.</p>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="service-card group">
+          <div class="icon-box bg-purple-500">
+            <i class="fas fa-search text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">SEO & Google Ranking</h3>
+          <p class="text-gray-400">Get found on Google when people search for your products or services.</p>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="service-card group">
+          <div class="icon-box bg-blue-500">
+            <i class="fas fa-envelope text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Business Email Setup</h3>
+          <p class="text-gray-400">Professional email addresses like info@yourbusiness.com to boost credibility.</p>
+        </div>
+        
+        <!-- Service Card 4 -->
+        <div class="service-card group">
+          <div class="icon-box bg-pink-500">
+            <i class="fas fa-share-alt text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Social Media Integration</h3>
+          <p class="text-gray-400">Connect your website to WhatsApp, Instagram, Facebook, and more.</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-gray-800 relative">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">💰 Pricing</h2>
+        <p class="max-w-2xl mx-auto text-gray-400">Choose the perfect package for your business needs</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Starter Package -->
+        <div class="pricing-card transform hover:scale-105 transition">
+          <div class="ribbon bg-green-500">Starter</div>
+          <h3 class="text-2xl font-bold mb-2">Ksh 2,999</h3>
+          <p class="text-gray-400 mb-6">One-time payment</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 1-page responsive website</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Hosted on our subdomain</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Basic contact form</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Delivered in 3 days</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+        </div>
+        
+        <!-- Pro Package -->
+        <div class="pricing-card transform hover:scale-105 transition">
+          <div class="ribbon bg-yellow-500">Pro</div>
+          <h3 class="text-2xl font-bold mb-2">Ksh 6,999 setup</h3>
+          <p class="text-gray-400 mb-6">+ Ksh 1,599/month</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 3 pages</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom domain (.com or .co.ke)</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Free business email</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> SEO optimization</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Monthly maintenance</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> WhatsApp button</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+        </div>
+        
+        <!-- Elite Package -->
+        <div class="pricing-card transform hover:scale-105 transition">
+          <div class="ribbon bg-red-500">Elite</div>
+          <h3 class="text-2xl font-bold mb-2">Ksh 12,999 setup</h3>
+          <p class="text-gray-400 mb-6">+ Ksh 3,999/month</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 5+ pages</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Premium animations & branding</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom domain & email</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> SEO + digital marketing support</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Blog or product section</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Google Maps, forms, and extras</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+        </div>
+      </div>
+      
+      <!-- Extras -->
+      <div class="max-w-3xl mx-auto mt-16 bg-gray-700 bg-opacity-50 p-8 rounded-xl backdrop-blur-md border border-gray-600">
+        <h3 class="text-2xl font-bold mb-6 text-center">Extras & Add-ons</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="extra-item">
+            <i class="fas fa-file-alt text-blue-400 text-2xl mb-2"></i>
+            <p>Extra page: <span class="font-bold">Ksh 500 each</span></p>
+          </div>
+          <div class="extra-item">
+            <i class="fas fa-palette text-purple-400 text-2xl mb-2"></i>
+            <p>Logo design: <span class="font-bold">Ksh 2,000</span></p>
+          </div>
+          <div class="extra-item">
+            <i class="fas fa-server text-cyan-400 text-2xl mb-2"></i>
+            <p>Hosting & domain: <span class="font-bold">Ksh 1,500/month or Ksh 5,500/year</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">❤️ Why Choose Us?</h2>
+        <p class="max-w-2xl mx-auto text-gray-400">We're different from other digital agencies</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div class="feature-card">
+          <i class="fas fa-wallet text-4xl mb-4 text-green-400"></i>
+          <h3 class="text-xl font-bold mb-3">Affordable</h3>
+          <p class="text-gray-400">Quality digital solutions that fit small business budgets.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-user-shield text-4xl mb-4 text-blue-400"></i>
+          <h3 class="text-xl font-bold mb-3">Honest</h3>
+          <p class="text-gray-400">No hidden fees or complicated contracts.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-bolt text-4xl mb-4 text-yellow-400"></i>
+          <h3 class="text-xl font-bold mb-3">Fast</h3>
+          <p class="text-gray-400">Quick turnaround times without sacrificing quality.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-headset text-4xl mb-4 text-pink-400"></i>
+          <h3 class="text-xl font-bold mb-3">Human Support</h3>
+          <p class="text-gray-400">Real people who care about your business success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">📞 Contact Us</h2>
+          <p class="text-xl text-gray-400">Have a question? Need a custom quote?</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="contact-info">
+            <div class="mb-8">
+              <h3 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-envelope mr-3 text-cyan-400"></i> Email
+              </h3>
+              <a href="mailto:mbokadigital254@gmail.com" class="text-gray-400 hover:text-cyan-400 transition">mbokadigital254@gmail.com</a>
+            </div>
+            
+            <div class="mb-8">
+              <h3 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fab fa-whatsapp mr-3 text-green-400"></i> WhatsApp
+              </h3>
+              <a href="https://wa.me/254112718833" class="text-gray-400 hover:text-green-400 transition block mb-2">+254 112 718 833</a>
+              <a href="https://wa.me/254740272979" class="text-gray-400 hover:text-green-400 transition">+254 740 272 979</a>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-map-marker-alt mr-3 text-red-400"></i> Location
+              </h3>
+              <p class="text-gray-400">Based in Nairobi, Kenya</p>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form class="space-y-6">
+              <div>
+                <label for="name" class="block mb-2">Your Name</label>
+                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+              </div>
+              
+              <div>
+                <label for="email" class="block mb-2">Email Address</label>
+                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+              </div>
+              
+              <div>
+                <label for="message" class="block mb-2">Your Message</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Floating elements -->
+    <div class="floating-circle-1"></div>
+    <div class="floating-circle-2"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-gray-900 border-t border-gray-800">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-6 md:mb-0">
+          <div class="logo-text text-xl font-bold">
+            <span class="text-cyan-400">MBOKA</span>
+            <span class="text-white">DIGITAL</span>
+          </div>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-cyan-400 transition">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-cyan-400 transition">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-cyan-400 transition">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <div class="relative group">
+            <a href="https://wa.me/254112718833" class="text-gray-400 hover:text-green-400 transition">
+              <i class="fab fa-whatsapp text-xl"></i>
+            </a>
+            <div class="absolute hidden group-hover:block bg-gray-800 px-2 py-1 rounded text-xs whitespace-nowrap -left-4 top-full mt-1">
+              +254 112 718 833
+            </div>
+          </div>
+          <div class="relative group">
+            <a href="https://wa.me/254740272979" class="text-gray-400 hover:text-green-400 transition">
+              <i class="fab fa-whatsapp text-xl"></i>
+            </a>
+            <div class="absolute hidden group-hover:block bg-gray-800 px-2 py-1 rounded text-xs whitespace-nowrap -left-4 top-full mt-1">
+              +254 740 272 979
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2025 Mboka Digital. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top fixed bottom-8 right-8 bg-cyan-600 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible">
+    <i class="fas fa-arrow-up text-white"></i>
+  </button>
+
+  <script src="./src/main.js"></script>
+</body>
+</html>
