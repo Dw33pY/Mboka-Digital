@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Base Styles */
-body {
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-}
-
 /* Brand Colors */
 :root {
-  --mboka-blue: #1e40af;  /* Deep blue from your logo */
-  --mboka-orange: #f97316; /* Vibrant orange from your logo */
-  --mboka-light-blue: #3b82f6; /* Lighter blue accent */
+  --mboka-blue: #1e40af;
+  --mboka-orange: #f97316;
+  --mboka-light-blue: #3b82f6;
 }
 
 /* Text Colors */
@@ -20,6 +14,23 @@ body {
 
 .text-mboka-orange {
   color: var(--mboka-orange);
+}
+
+.bg-mboka-blue {
+  background-color: var(--mboka-blue);
+}
+
+.bg-mboka-orange {
+  background-color: var(--mboka-orange);
+}
+
+.bg-mboka-light-blue {
+  background-color: var(--mboka-light-blue);
+}
+
+/* Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Navbar Styles */
@@ -40,7 +51,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
   transition: width 0.3s ease;
 }
 
@@ -64,29 +75,29 @@ body {
 
 .logo-text:hover {
   transform: scale(1.05);
-  text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  text-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
 }
 
 /* Button Styles */
 .btn-primary {
-  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  background: linear-gradient(135deg, var(--mboka-blue), var(--mboka-orange));
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
 }
 
 .btn-secondary {
-  border: 2px solid #22d3ee;
-  color: #22d3ee;
+  border: 2px solid var(--mboka-blue);
+  color: var(--mboka-blue);
   transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background: rgba(34, 211, 238, 0.1);
+  background: rgba(30, 64, 175, 0.1);
   transform: translateY(-2px);
 }
 
@@ -98,11 +109,11 @@ body {
 }
 
 .empowering-text {
-  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+  text-shadow: 0 0 10px rgba(30, 64, 175, 0.3);
 }
 
 .quote-box {
@@ -129,7 +140,7 @@ body {
 .shape-1, .shape-2, .shape-3 {
   position: absolute;
   border-radius: 50%;
-  background: rgba(34, 211, 238, 0.1);
+  background: rgba(30, 64, 175, 0.1);
   backdrop-filter: blur(5px);
   animation: float 15s infinite linear;
 }
@@ -184,7 +195,7 @@ body {
 .service-card:hover {
   transform: perspective(1000px) rotateX(0deg) rotateY(5deg);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(34, 211, 238, 0.3);
+  border-color: rgba(30, 64, 175, 0.3);
 }
 
 .icon-box {
@@ -206,7 +217,7 @@ body {
 .pricing-card {
   background: rgba(30, 41, 59, 0.7);
   border-radius: 16px;
-  padding: 40px 30px;
+  padding: 30px;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -216,7 +227,7 @@ body {
 
 .pricing-card:hover {
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(34, 211, 238, 0.3);
+  border-color: rgba(30, 64, 175, 0.3);
 }
 
 .ribbon {
@@ -245,7 +256,7 @@ body {
 .feature-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-  border-color: rgba(34, 211, 238, 0.3);
+  border-color: rgba(30, 64, 175, 0.3);
 }
 
 /* Contact Section */
@@ -269,7 +280,7 @@ body {
 .floating-circle-1, .floating-circle-2 {
   position: absolute;
   border-radius: 50%;
-  background: rgba(34, 211, 238, 0.1);
+  background: rgba(30, 64, 175, 0.1);
   backdrop-filter: blur(5px);
   animation: float 20s infinite ease-in-out;
   z-index: -1;
@@ -302,7 +313,7 @@ body {
 
 .back-to-top:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
+  box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
 }
 
 /* Extra Items */
@@ -347,4 +358,29 @@ body {
   .logo-text {
     font-size: 1.5rem;
   }
+
+  .pricing-card {
+    padding: 25px 20px;
+  }
+
+  .service-card, .feature-card {
+    padding: 25px;
+  }
+}
+
+/* Prevent overflow on mobile */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+h3 {
+  margin-top: 25px;
 }
