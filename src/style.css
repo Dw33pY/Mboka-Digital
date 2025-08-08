@@ -259,6 +259,23 @@ body {
   border-color: rgba(30, 64, 175, 0.3);
 }
 
+/* Ensure pricing card buttons work normally */
+.pricing-card a[href^="#"] {
+  pointer-events: auto !important;
+}
+
+/* Optional: Add click feedback for better UX */
+.pricing-card a[href^="#"]:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.pricing-card a {
+  position: relative;
+  z-index: 10;
+}
+
+
 .ribbon {
   position: absolute;
   top: 0;

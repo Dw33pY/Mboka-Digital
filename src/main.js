@@ -47,9 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  // Smooth scrolling for navigation links (updated to exclude pricing card buttons)
+  const navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Only prevent default for these specific navigation links
       e.preventDefault();
       
       const targetId = this.getAttribute('href');
@@ -60,6 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
           top: targetElement.offsetTop - 80,
           behavior: 'smooth'
         });
+        
+        // Update URL without page jump
+        if (history.pushState) {
+          history.pushState(null, null, targetId);
+        } else {
+          window.location.hash = targetId;
+        }
       }
     });
   });
@@ -193,4 +203,5 @@ document.addEventListener('DOMContentLoaded', function() {
       floatingShapes.style.display = 'none';
     }
   }
+  
 });
