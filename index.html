@@ -115,7 +115,7 @@
     <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
   </section>
 
-  <!-- Pricing Section -->
+  <!-- Updated Pricing Section -->
   <section id="pricing" class="py-20 bg-gray-800 relative">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="text-center mb-16">
@@ -125,25 +125,27 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <!-- Starter Package -->
-        <div class="pricing-card">
+        <div class="pricing-card flex flex-col h-full">
           <div class="ribbon bg-green-500">Starter</div>
           <h3 class="text-2xl font-bold mb-2">Ksh 2,999</h3>
           <p class="text-gray-400 mb-6">One-time payment</p>
-          <ul class="space-y-3 mb-8">
+          <ul class="space-y-3 mb-6 flex-grow">
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 1-page responsive website</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Hosted on our subdomain</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Basic contact form</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Delivered in 3 days</li>
           </ul>
-          <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          <div class="mt-auto pt-6">
+            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          </div>
         </div>
         
         <!-- Pro Package -->
-        <div class="pricing-card">
+        <div class="pricing-card flex flex-col h-full">
           <div class="ribbon bg-yellow-500">Pro</div>
           <h3 class="text-2xl font-bold mb-2">Ksh 6,999 setup</h3>
           <p class="text-gray-400 mb-6">+ Ksh 1,599/month</p>
-          <ul class="space-y-3 mb-8">
+          <ul class="space-y-3 mb-6 flex-grow">
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 3 pages</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom domain (.com or .co.ke)</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Free business email</li>
@@ -151,15 +153,17 @@
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Monthly maintenance</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> WhatsApp button</li>
           </ul>
-          <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          <div class="mt-auto pt-6">
+            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          </div>
         </div>
         
         <!-- Elite Package -->
-        <div class="pricing-card">
+        <div class="pricing-card flex flex-col h-full">
           <div class="ribbon bg-red-500">Elite</div>
           <h3 class="text-2xl font-bold mb-2">Ksh 12,999 setup</h3>
           <p class="text-gray-400 mb-6">+ Ksh 3,999/month</p>
-          <ul class="space-y-3 mb-8">
+          <ul class="space-y-3 mb-6 flex-grow">
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 5+ pages</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Premium animations & branding</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom domain & email</li>
@@ -167,7 +171,9 @@
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Blog or product section</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Google Maps, forms, and extras</li>
           </ul>
-          <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          <div class="mt-auto pt-6">
+            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          </div>
         </div>
       </div>
       
@@ -260,20 +266,20 @@
           </div>
           
           <div class="contact-form">
-            <form class="space-y-6">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
               <div>
                 <label for="name" class="block mb-2">Your Name</label>
-                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mboka-blue">
+                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mboka-blue" required>
               </div>
               
               <div>
                 <label for="email" class="block mb-2">Email Address</label>
-                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mboka-blue">
+                <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mboka-blue" required>
               </div>
               
               <div>
                 <label for="message" class="block mb-2">Your Message</label>
-                <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mboka-blue"></textarea>
+                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mboka-blue" required></textarea>
               </div>
               
               <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium">Send Message</button>
@@ -300,15 +306,30 @@
         </div>
         
         <div class="flex space-x-6">
-          <a href="#" class="text-gray-400 hover:text-mboka-blue transition">
-            <i class="fab fa-facebook-f text-xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-mboka-blue transition">
-            <i class="fab fa-twitter text-xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-mboka-blue transition">
-            <i class="fab fa-instagram text-xl"></i>
-          </a>
+          <div class="relative group">
+            <a href="#" class="text-gray-400 hover:text-mboka-blue transition">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+              <div class="absolute hidden group-hover:block bg-gray-800 px-2 py-1 rounded text-xs whitespace-nowrap -left-4 top-full mt-1">
+                Coming Soon
+              </div>
+          </div>
+          <div class="relative group">
+            <a href="#" class="text-gray-400 hover:text-mboka-blue transition">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <div class="absolute hidden group-hover:block bg-gray-800 px-2 py-1 rounded text-xs whitespace-nowrap -left-4 top-full mt-1">
+              Coming Soon
+            </div>
+          </div>
+          <div class="relative group">
+            <a href="#" class="text-gray-400 hover:text-mboka-blue transition">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <div class="absolute hidden group-hover:block bg-gray-800 px-2 py-1 rounded text-xs whitespace-nowrap -left-4 top-full mt-1">
+              Coming Soon
+            </div>
+          </div>
           <div class="relative group">
             <a href="https://wa.me/254112718833" class="text-gray-400 hover:text-green-400 transition">
               <i class="fab fa-whatsapp text-xl"></i>

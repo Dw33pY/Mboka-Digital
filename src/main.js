@@ -1,8 +1,3 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
-
 document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu toggle
   const mobileMenuButton = document.querySelector('.mobile-menu-button');
@@ -84,23 +79,66 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', animateOnScroll);
   animateOnScroll(); // Run once on page load
   
-  // Form submission
+  // Enhanced 3D tilt effect for pricing cards
+  const pricingCards = document.querySelectorAll('.pricing-card');
+  pricingCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const cardRect = card.getBoundingClientRect();
+      const xAxis = (cardRect.width / 2 - (e.clientX - cardRect.left)) / 15;
+      const yAxis = (cardRect.height / 2 - (e.clientY - cardRect.top)) / 15;
+      card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      card.style.boxShadow = `${-xAxis * 2}px ${yAxis * 2}px 30px rgba(0, 0, 0, 0.3)`;
+    });
+    
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'all 0.1s ease';
+      card.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'all 0.5s ease';
+      card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      card.style.boxShadow = '0 20px 30px rgba(0, 0, 0, 0.3)';
+      card.style.zIndex = '1';
+    });
+  });
+  
+  // Form submission with fetch API
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+      const formData = new FormData(this);
+      const submitButton = this.querySelector('button[type="submit"]');
       
-      // Here you would typically send the form data to a server
-      // For now, we'll just show an alert
-      alert(`Thank you, ${name}! Your message has been received. We'll contact you at ${email} soon.`);
+      // Disable button during submission
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Sending...';
       
-      // Reset the form
-      contactForm.reset();
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Thank you! Your message has been sent.');
+          this.reset();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch(error => {
+        alert('There was a problem sending your message. Please try again later.');
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Send Message';
+      });
     });
   }
   
@@ -112,23 +150,4 @@ document.addEventListener('DOMContentLoaded', function() {
       heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
     });
   }
-  
-  // Add 3D tilt effect to cards
-  const cards = document.querySelectorAll('.service-card, .pricing-card, .feature-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-      card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-    });
-    
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'all 0.1s ease';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transition = 'all 0.5s ease';
-      card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-    });
-  });
 });
