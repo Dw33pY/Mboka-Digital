@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Theme toggle functionality
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  const themeIcon = document.getElementById('theme-icon');
+  const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+  function setTheme(theme) {
+    document.body.classList.toggle('light-theme', theme === 'light');
+    const icons = [themeIcon, themeIconMobile];
+    icons.forEach(icon => {
+      if (icon) {
+        icon.classList.toggle('fa-sun', theme === 'light');
+        icon.classList.toggle('fa-moon', theme !== 'light');
+      }
+    });
+    localStorage.setItem('theme', theme);
+  }
+
+  // Check for saved theme preference
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(currentTheme);
+
+  // Theme toggle event listeners
+  [themeToggle, themeToggleMobile].forEach(toggle => {
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const isLight = document.body.classList.contains('light-theme');
+        setTheme(isLight ? 'dark' : 'light');
+      });
+    }
+  });
+
   // Mobile menu toggle
   const mobileMenuButton = document.querySelector('.mobile-menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -77,32 +109,34 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   window.addEventListener('scroll', animateOnScroll);
-  animateOnScroll(); // Run once on page load
-  
-  // Enhanced 3D tilt effect for pricing cards
-  const pricingCards = document.querySelectorAll('.pricing-card');
-  pricingCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const cardRect = card.getBoundingClientRect();
-      const xAxis = (cardRect.width / 2 - (e.clientX - cardRect.left)) / 15;
-      const yAxis = (cardRect.height / 2 - (e.clientY - cardRect.top)) / 15;
-      card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-      card.style.boxShadow = `${-xAxis * 2}px ${yAxis * 2}px 30px rgba(0, 0, 0, 0.3)`;
+  animateOnScroll();
+
+  // Enhanced 3D tilt effect for pricing cards (desktop only)
+  if (window.innerWidth > 768) {
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    pricingCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const cardRect = card.getBoundingClientRect();
+        const xAxis = (cardRect.width / 2 - (e.clientX - cardRect.left)) / 15;
+        const yAxis = (cardRect.height / 2 - (e.clientY - cardRect.top)) / 15;
+        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        card.style.boxShadow = `${-xAxis * 2}px ${yAxis * 2}px 30px rgba(0, 0, 0, 0.3)`;
+      });
+      
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.1s ease';
+        card.style.zIndex = '10';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'all 0.5s ease';
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        card.style.boxShadow = '0 20px 30px rgba(0, 0, 0, 0.3)';
+        card.style.zIndex = '1';
+      });
     });
-    
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'all 0.1s ease';
-      card.style.zIndex = '10';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transition = 'all 0.5s ease';
-      card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-      card.style.boxShadow = '0 20px 30px rgba(0, 0, 0, 0.3)';
-      card.style.zIndex = '1';
-    });
-  });
-  
+  }
+
   // Form submission with fetch API
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
@@ -114,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Disable button during submission
       submitButton.disabled = true;
-      submitButton.innerHTML = 'Sending...';
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
       
       fetch(this.action, {
         method: 'POST',
@@ -141,13 +175,22 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
-  // Add parallax effect to hero section
-  const heroSection = document.querySelector('.hero-section');
-  if (heroSection) {
-    window.addEventListener('scroll', function() {
-      const scrollPosition = window.pageYOffset;
-      heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-    });
+
+  // Disable motion effects on mobile
+  if (window.innerWidth > 768) {
+    // Add parallax effect to hero section
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+      });
+    }
+  } else {
+    // Remove floating shapes on mobile
+    const floatingShapes = document.querySelector('.floating-shapes');
+    if (floatingShapes) {
+      floatingShapes.style.display = 'none';
+    }
   }
 });

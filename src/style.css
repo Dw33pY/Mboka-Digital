@@ -1,10 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Brand Colors */
+/* Brand Colors - These remain constant in both themes */
 :root {
   --mboka-blue: #1e40af;
   --mboka-orange: #f97316;
   --mboka-light-blue: #3b82f6;
+  
+  /* Dark theme colors (default) */
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --bg-primary-rgb: 17, 24, 39;
+  --bg-secondary-rgb: 31, 41, 55;
+}
+
+.light-theme {
+  /* Light theme colors */
+  --bg-primary: #f9fafb;
+  --bg-secondary: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --bg-primary-rgb: 249, 250, 251;
+  --bg-secondary-rgb: 255, 255, 255;
 }
 
 /* Text Colors */
@@ -31,13 +49,20 @@
 /* Base Styles */
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Navbar Styles */
 .navbar {
   backdrop-filter: blur(10px);
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(var(--bg-primary-rgb), 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .nav-link {
@@ -57,14 +82,6 @@ body {
 
 .nav-link:hover::after {
   width: 100%;
-}
-
-.mobile-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  transition: all 0.3s ease;
 }
 
 /* Logo Text */
@@ -101,6 +118,10 @@ body {
   transform: translateY(-2px);
 }
 
+.light-theme .btn-secondary {
+  background: transparent;
+}
+
 /* Hero Section */
 .hero-section {
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), url('./assets/hero-bg.jpg');
@@ -119,6 +140,14 @@ body {
 .quote-box {
   transform: perspective(1000px) rotateX(0deg) rotateY(-5deg);
   transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(var(--bg-primary-rgb), 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .quote-box {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .quote-box:hover {
@@ -438,4 +467,52 @@ h3 {
   margin-top: auto;
 }
 
-/* Rest of your existing CSS remains the same */
+/* Light theme specific adjustments */
+.light-theme .service-card,
+.light-theme .pricing-card,
+.light-theme .feature-card,
+.light-theme .contact-info,
+.light-theme .contact-form {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .extra-item {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Theme toggle button */
+#theme-toggle, #theme-toggle-mobile {
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover, #theme-toggle-mobile:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+  }
+  
+  .floating-shapes {
+    display: none;
+  }
+  
+  .quote-box {
+    transform: none !important;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .pricing-card {
+    padding: 25px 20px;
+  }
+
+  .service-card, .feature-card {
+    padding: 25px;
+  }
+}
