@@ -317,20 +317,33 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Menu */
+/* Mobile Menu Overlay */
 .mobile-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  transition: all 0.3s ease;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
 }
-.mobile-menu:not(.hidden) {
-  max-height: 500px;
-  opacity: 1;
+.mobile-menu.open {
+  transform: translateY(0);
+}
+/* Style menu links */
+.mobile-menu-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.mobile-menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.mobile-menu-link:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 /* Responsive */
@@ -356,42 +369,4 @@ body {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu {
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
-}
-.mobile-menu:not(.hidden) {
-  transform: translateY(0);
-}
-/* Ensure hidden class doesn't conflict with transition */
-.mobile-menu.hidden {
-  display: flex !important;   /* override display:flex to keep transition */
-  transform: translateY(-100%);
-  pointer-events: none;
-}
-.mobile-menu:not(.hidden) {
-  pointer-events: auto;
-}
-/* Style menu links */
-.mobile-menu-link {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-.mobile-menu-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
-  transition: width 0.3s ease, left 0.3s ease;
-}
-.mobile-menu-link:hover::after {
-  width: 100%;
-  left: 0;
 }
