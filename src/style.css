@@ -109,9 +109,9 @@ body {
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), url('./assets/hero-bg.jpg');
   background-size: cover;
   background-position: center;
-  padding-top: 80px; /* same as navbar height */
+  padding-top: 80px;
   min-height: 100vh;
-  box-sizing: border-box; /* padding included in height */
+  box-sizing: border-box;
 }
 .empowering-text {
   background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
@@ -204,7 +204,7 @@ body {
 }
 .pricing-card-content {
   padding: 30px;
-  padding-top: 80px; /* extra space for ribbon */
+  padding-top: 80px;
   position: relative;
   z-index: 2;
   flex: 1;
@@ -339,17 +339,22 @@ body {
 
 /* ===== Custom Hamburger Animation ===== */
 .hamburger {
-  width: 40px;
-  height: 40px;
+  width: 44px;  /* slightly larger */
+  height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: transparent;
-  border: none;
+  background: rgba(255,255,255,0.1); /* subtle background */
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
   position: relative;
   z-index: 60 !important; /* Above mobile menu */
+}
+.hamburger:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 .hamburger-line {
@@ -388,6 +393,7 @@ body {
   position: relative;
   display: inline-block;
   padding-bottom: 5px;
+  font-size: 2rem; /* larger for better visibility */
 }
 .mobile-menu-link::after {
   content: '';
@@ -404,6 +410,18 @@ body {
   left: 0;
 }
 
+/* Mobile Menu Close Button - made visible */
+.mobile-menu-close {
+  z-index: 50;
+  background-color: #374151 !important; /* lighter gray */
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
+}
+.mobile-menu-close:hover {
+  background-color: #4b5563 !important;
+  transform: scale(1.1);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-section { text-align: center; }
@@ -412,6 +430,7 @@ body {
   .logo-text { font-size: 1.5rem; }
   .pricing-card-content { padding: 20px; padding-top: 70px; }
   .service-card, .feature-card { padding: 25px; }
+  .mobile-menu-link { font-size: 1.8rem; }
 }
 @media (max-width: 640px) {
   html, body { overflow-x: hidden; width: 100%; }
