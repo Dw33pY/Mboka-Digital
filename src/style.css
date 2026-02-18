@@ -27,19 +27,34 @@ body {
   color: var(--text-primary);
 }
 
-/* Preloader */
+/* ===== PULSING TYPEWRITER LOADER ===== */
 #preloader {
   z-index: 100;
 }
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(255,255,255,0.1);
-  border-left-color: var(--mboka-blue);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.loader-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pulse 1.5s ease-in-out infinite, blink 1s step-end infinite;
+  border-right: 3px solid var(--mboka-orange);
+  white-space: nowrap;
+  padding-right: 10px;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(30,64,175,0.5); }
+  50% { opacity: 0.7; text-shadow: 0 0 20px rgba(249,115,22,0.8); }
+}
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--mboka-orange); }
+}
+@media (max-width: 640px) {
+  .loader-text { font-size: 1.8rem; }
+}
 
 /* Navbar */
 .navbar {
@@ -390,7 +405,7 @@ body {
   background: linear-gradient(90deg, var(--mboka-orange), var(--mboka-blue));
 }
 
-/* ===== MOBILE MENU OVERLAY (SIMPLE DISPLAY TOGGLE) ===== */
+/* ===== MOBILE MENU OVERLAY (FIXED: no default 'flex' class) ===== */
 .mobile-menu {
   display: none;
   position: fixed;
