@@ -50,16 +50,19 @@
         <a href="#contact" class="nav-link hover:text-mboka-orange transition">Contact</a>
       </div>
       <div class="md:hidden flex items-center">
-        <button class="mobile-menu-button p-2 rounded-full focus:outline-none bg-gray-700 hover:bg-gray-600 transition" aria-label="Menu">
-          <i class="fas fa-bars text-xl"></i>
+        <!-- Custom animated hamburger button -->
+        <button class="hamburger p-2 focus:outline-none" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Menu Overlay (full-screen, premium) -->
-  <div class="mobile-menu fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-900/95 backdrop-blur-xl transition-transform duration-500 ease-in-out translate-y-[-100%]">
-    <!-- Close button -->
+  <!-- Mobile Menu Overlay (full-screen) -->
+  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center bg-gray-900 backdrop-blur-xl transition-transform duration-500 ease-in-out translate-y-[-100%]">
+    <!-- Close button (optional, but kept for alternative close) -->
     <button class="mobile-menu-close absolute top-6 right-6 p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition" aria-label="Close menu">
       <i class="fas fa-times text-2xl"></i>
     </button>
@@ -154,7 +157,7 @@
     <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
   </section>
 
-  <!-- Pricing Section -->
+  <!-- Pricing Section (revised) -->
   <section id="pricing" class="py-20 bg-gray-800 relative">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="text-center mb-16">
@@ -166,50 +169,56 @@
         <!-- Starter Package -->
         <div class="pricing-card flex flex-col h-full">
           <div class="ribbon bg-green-500">Starter</div>
-          <h3 class="text-2xl font-bold mb-2">From KSH 7,000</h3>
-          <p class="text-gray-400 mb-6">one‑time payment</p>
-          <ul class="space-y-3 mb-6 flex-grow">
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 1-page responsive website</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Basic contact form</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Mobile optimized</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 3 days delivery</li>
-          </ul>
-          <div class="mt-auto pt-6">
-            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          <div class="pricing-card-content">
+            <h3 class="text-2xl font-bold mb-2">From KSH 7,000</h3>
+            <p class="text-gray-400 mb-6">one‑time payment</p>
+            <ul class="space-y-3 mb-6 flex-grow">
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 1-page responsive website</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Basic contact form</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Mobile optimized</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 3 days delivery</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+            </div>
           </div>
         </div>
         
         <!-- Business Package (Popular) -->
         <div class="pricing-card flex flex-col h-full popular">
           <div class="ribbon bg-yellow-500">Business ⭐</div>
-          <h3 class="text-2xl font-bold mb-2">From KSH 25,000</h3>
-          <p class="text-gray-400 mb-6">one‑time payment</p>
-          <ul class="space-y-3 mb-6 flex-grow">
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 5 pages</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom design & branding</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Business email setup</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> SEO optimization</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> WhatsApp integration</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 7 days delivery</li>
-          </ul>
-          <div class="mt-auto pt-6">
-            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+          <div class="pricing-card-content">
+            <h3 class="text-2xl font-bold mb-2">From KSH 25,000</h3>
+            <p class="text-gray-400 mb-6">one‑time payment</p>
+            <ul class="space-y-3 mb-6 flex-grow">
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 5 pages</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom design & branding</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Business email setup</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> SEO optimization</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> WhatsApp integration</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 7 days delivery</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+            </div>
           </div>
         </div>
         
         <!-- Custom Package -->
         <div class="pricing-card flex flex-col h-full">
           <div class="ribbon bg-red-500">Custom</div>
-          <h3 class="text-2xl font-bold mb-2">From KSH 45,000</h3>
-          <p class="text-gray-400 mb-6">quote based</p>
-          <ul class="space-y-3 mb-6 flex-grow">
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> E‑commerce / membership / portals</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Advanced functionality</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom features as needed</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Timeline based on requirements</li>
-          </ul>
-          <div class="mt-auto pt-6">
-            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get a Quote</a>
+          <div class="pricing-card-content">
+            <h3 class="text-2xl font-bold mb-2">From KSH 45,000</h3>
+            <p class="text-gray-400 mb-6">quote based</p>
+            <ul class="space-y-3 mb-6 flex-grow">
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> E‑commerce / membership / portals</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Advanced functionality</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom features as needed</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Timeline based on requirements</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get a Quote</a>
+            </div>
           </div>
         </div>
       </div>
@@ -400,13 +409,13 @@
           </div>
         </div>
       </div>
-      
-      <!-- Optional quick contact line (you can keep or remove) -->
+
+      <!-- Quick contact line -->
       <div class="text-center text-gray-500 text-sm mt-6">
         <i class="fas fa-phone-alt mr-2"></i> +254 112 271 833  |  
         <i class="fas fa-envelope mr-2 ml-2"></i> mbokadigital254@gmail.com
       </div>
-
+      
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
         <p>&copy; 2025 Mboka Digital. All rights reserved.</p>
       </div>
