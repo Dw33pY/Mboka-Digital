@@ -5,8 +5,6 @@
   --mboka-blue: #1e40af;
   --mboka-orange: #f97316;
   --mboka-light-blue: #3b82f6;
-
-  /* Dark theme (only) */
   --bg-primary: #111827;
   --bg-secondary: #1f2937;
   --text-primary: #f9fafb;
@@ -104,7 +102,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Hero - FIXED: padding-top to clear navbar */
+/* Hero */
 .hero-section {
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), url('./assets/hero-bg.jpg');
   background-size: cover;
@@ -186,7 +184,7 @@ body {
   transform: rotate(15deg) scale(1.1);
 }
 
-/* Pricing Cards - with ribbon spacing */
+/* Pricing Cards */
 .pricing-card {
   background: rgba(30, 41, 59, 0.7);
   border-radius: 16px;
@@ -337,63 +335,97 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Custom Hamburger Animation ===== */
+/* ===== BULLETPROOF MOBILE MENU ===== */
+/* Hamburger button - clearly visible */
 .hamburger {
-  width: 44px;  /* slightly larger */
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: rgba(255,255,255,0.1); /* subtle background */
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
+  background: rgba(30, 64, 175, 0.3); /* blue tint */
+  border: 2px solid var(--mboka-orange);
+  border-radius: 12px;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 60 !important; /* Above mobile menu */
+  z-index: 1001; /* way above everything */
 }
 .hamburger:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(30, 64, 175, 0.5);
+  transform: scale(1.05);
 }
-
 .hamburger-line {
   width: 24px;
-  height: 2px;
+  height: 3px;
   background-color: white;
   display: block;
   margin: 4px 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  border-radius: 2px;
+  border-radius: 3px;
 }
-
 .hamburger.open .hamburger-line:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+  transform: translateY(11px) rotate(45deg);
 }
 .hamburger.open .hamburger-line:nth-child(2) {
   opacity: 0;
 }
 .hamburger.open .hamburger-line:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);
 }
 
-/* ===== Mobile Menu Overlay ===== */
+/* Mobile menu overlay - uses display toggling */
 .mobile-menu {
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
-  background-color: #0f172a; /* solid dark background */
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a; /* dark background */
   backdrop-filter: blur(10px);
-  z-index: 40;
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .mobile-menu.open {
-  transform: translateY(0);
+  display: flex; /* shown when open */
 }
 
+/* Close button inside menu - big and bright */
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ef4444 !important; /* bright red */
+  color: white;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1010;
+}
+.mobile-menu-close:hover {
+  background-color: #dc2626 !important;
+  transform: rotate(90deg);
+}
+
+/* Menu links */
 .mobile-menu-link {
+  color: white;
+  font-size: 2rem;
+  margin: 15px 0;
   position: relative;
-  display: inline-block;
+  text-decoration: none;
   padding-bottom: 5px;
-  font-size: 2rem; /* larger for better visibility */
 }
 .mobile-menu-link::after {
   content: '';
@@ -401,7 +433,7 @@ body {
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
   transition: width 0.3s ease, left 0.3s ease;
 }
@@ -410,16 +442,15 @@ body {
   left: 0;
 }
 
-/* Mobile Menu Close Button - made visible */
-.mobile-menu-close {
-  z-index: 50;
-  background-color: #374151 !important; /* lighter gray */
-  border: 1px solid rgba(255,255,255,0.3);
-  transition: all 0.3s ease;
+/* Social icons in menu - white */
+.mobile-menu .fab {
+  color: white;
+  font-size: 28px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
 }
-.mobile-menu-close:hover {
-  background-color: #4b5563 !important;
-  transform: scale(1.1);
+.mobile-menu .fab:hover {
+  transform: scale(1.2);
 }
 
 /* Responsive */
@@ -430,7 +461,6 @@ body {
   .logo-text { font-size: 1.5rem; }
   .pricing-card-content { padding: 20px; padding-top: 70px; }
   .service-card, .feature-card { padding: 25px; }
-  .mobile-menu-link { font-size: 1.8rem; }
 }
 @media (max-width: 640px) {
   html, body { overflow-x: hidden; width: 100%; }
