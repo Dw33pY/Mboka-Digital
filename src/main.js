@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== HAMBURGER MENU TOGGLE WITH PAGE LOCK =====
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
-  const closeBtn = document.querySelector('.mobile-menu-close');
   const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
   if (hamburger && mobileMenu) {
@@ -47,14 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         openMenu();
       }
     });
-
-    // Close button
-    if (closeBtn) {
-      closeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeMenu();
-      });
-    }
 
     // Close when any menu link is clicked and smooth scroll
     menuLinks.forEach(link => {
