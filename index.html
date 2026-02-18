@@ -3,15 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mboka Digital - Empowering Small Businesses Online</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Mboka Digital – Professional Websites for Kenyan Businesses</title>
+  <!-- SEO -->
+  <meta name="description" content="Affordable, beautiful websites for small businesses in Kenya. Get a professional online presence from KSH 6,000.">
+  <meta name="keywords" content="web design Kenya, affordable websites, business email, SEO Nairobi">
+  <meta name="author" content="Mboka Digital">
+  <meta property="og:title" content="Mboka Digital – Empowering Small Businesses Online">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mbokadigital.co.ke">
+  <meta property="og:image" content="./assets/og-image.jpg">
+  <meta name="theme-color" content="#1e40af">
+
+  <!-- Favicon (replace with your own) -->
+  <link rel="icon" type="image/png" href="./favicon.png">
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Tailwind (only for utilities – we keep it) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="./src/style.css">
 </head>
 <body class="font-poppins bg-gray-900 text-white overflow-x-hidden">
-  <!-- Glassmorphism Navbar -->
-  <nav class="navbar fixed top-0 left-0 w-full z-50">
+
+  <!-- PRELOADER -->
+  <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900 transition-opacity duration-500">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Navbar (glass, solid on scroll) -->
+  <nav class="navbar fixed top-0 left-0 w-full z-50 transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
       <div class="flex items-center">
         <div class="logo-text text-2xl font-bold">
@@ -24,15 +48,9 @@
         <a href="#services" class="nav-link hover:text-mboka-orange transition">Services</a>
         <a href="#pricing" class="nav-link hover:text-mboka-orange transition">Pricing</a>
         <a href="#contact" class="nav-link hover:text-mboka-orange transition">Contact</a>
-        <button id="theme-toggle" class="p-2 ml-4 rounded-full focus:outline-none bg-gray-700 hover:bg-gray-600 transition">
-          <i class="fas fa-moon text-xl text-yellow-300" id="theme-icon"></i>
-        </button>
       </div>
       <div class="md:hidden flex items-center">
-        <button id="theme-toggle-mobile" class="p-2 mr-2 rounded-full focus:outline-none bg-gray-700 hover:bg-gray-600 transition">
-          <i class="fas fa-moon text-xl text-yellow-300" id="theme-icon-mobile"></i>
-        </button>
-        <button class="mobile-menu-button p-2 rounded-full focus:outline-none bg-gray-700 hover:bg-gray-600 transition">
+        <button class="mobile-menu-button p-2 rounded-full focus:outline-none bg-gray-700 hover:bg-gray-600 transition" aria-label="Menu">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
@@ -121,85 +139,88 @@
     <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
   </section>
 
-  <!-- Updated Pricing Section -->
+  <!-- Pricing Section (revised) -->
   <section id="pricing" class="py-20 bg-gray-800 relative">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">💰 Pricing</h2>
-        <p class="max-w-2xl mx-auto text-gray-400">Choose the perfect package for your business needs</p>
+        <p class="max-w-2xl mx-auto text-gray-400">Transparent, one‑pricing with no hidden fees</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <!-- Starter Package -->
         <div class="pricing-card flex flex-col h-full">
           <div class="ribbon bg-green-500">Starter</div>
-          <h3 class="text-2xl font-bold mb-2">Ksh 2,999</h3>
-          <p class="text-gray-400 mb-6">One-time payment</p>
+          <h3 class="text-2xl font-bold mb-2">KSH 6,000</h3>
+          <p class="text-gray-400 mb-6">one‑time payment</p>
           <ul class="space-y-3 mb-6 flex-grow">
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 1-page responsive website</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Hosted on our subdomain</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Basic contact form</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Delivered in 3 days</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Mobile optimized</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 3 days delivery</li>
           </ul>
           <div class="mt-auto pt-6">
             <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
           </div>
         </div>
         
-        <!-- Pro Package -->
-        <div class="pricing-card flex flex-col h-full">
-          <div class="ribbon bg-yellow-500">Pro</div>
-          <h3 class="text-2xl font-bold mb-2">Ksh 6,999 setup</h3>
-          <p class="text-gray-400 mb-6">+ Ksh 1,599/month</p>
+        <!-- Business Package (Popular) -->
+        <div class="pricing-card flex flex-col h-full popular">
+          <div class="ribbon bg-yellow-500">Business ⭐</div>
+          <h3 class="text-2xl font-bold mb-2">KSH 25,000</h3>
+          <p class="text-gray-400 mb-6">one‑time payment</p>
           <ul class="space-y-3 mb-6 flex-grow">
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 3 pages</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom domain (.com or .co.ke)</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Free business email</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 5 pages</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom design & branding</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Business email setup</li>
             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> SEO optimization</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Monthly maintenance</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> WhatsApp button</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> WhatsApp integration</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 7 days delivery</li>
           </ul>
           <div class="mt-auto pt-6">
             <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
           </div>
         </div>
         
-        <!-- Elite Package -->
+        <!-- Custom Package -->
         <div class="pricing-card flex flex-col h-full">
-          <div class="ribbon bg-red-500">Elite</div>
-          <h3 class="text-2xl font-bold mb-2">Ksh 12,999 setup</h3>
-          <p class="text-gray-400 mb-6">+ Ksh 3,999/month</p>
+          <div class="ribbon bg-red-500">Custom</div>
+          <h3 class="text-2xl font-bold mb-2">From KSH 35,000</h3>
+          <p class="text-gray-400 mb-6">quote based</p>
           <ul class="space-y-3 mb-6 flex-grow">
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Up to 5+ pages</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Premium animations & branding</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom domain & email</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> SEO + digital marketing support</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Blog or product section</li>
-            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Google Maps, forms, and extras</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> E‑commerce / membership / portals</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Advanced functionality</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Custom features as needed</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Timeline based on requirements</li>
           </ul>
           <div class="mt-auto pt-6">
-            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get Started</a>
+            <a href="#contact" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">Get a Quote</a>
           </div>
         </div>
       </div>
       
-      <!-- Extras -->
+      <!-- Extras & Add-ons -->
       <div class="max-w-3xl mx-auto mt-16 bg-gray-700 bg-opacity-50 p-6 sm:p-8 rounded-xl backdrop-blur-md border border-gray-600">
         <h3 class="text-2xl font-bold mb-6 text-center">Extras & Add-ons</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div class="extra-item">
             <i class="fas fa-file-alt text-blue-400 text-2xl mb-2"></i>
-            <p>Extra page: <span class="font-bold">Ksh 500 each</span></p>
+            <p>Extra page: <span class="font-bold">KSH 500</span></p>
           </div>
           <div class="extra-item">
             <i class="fas fa-palette text-purple-400 text-2xl mb-2"></i>
-            <p>Logo design: <span class="font-bold">Ksh 2,000</span></p>
+            <p>Logo design: <span class="font-bold">KSH 2,000</span></p>
           </div>
           <div class="extra-item">
             <i class="fas fa-server text-cyan-400 text-2xl mb-2"></i>
-            <p>Hosting & domain: <span class="font-bold">Ksh 1,500/month or Ksh 5,500/year</span></p>
+            <p>Hosting & domain: <span class="font-bold">KSH 1,500/mo</span></p>
+          </div>
+          <div class="extra-item">
+            <i class="fas fa-shield-alt text-green-400 text-2xl mb-2"></i>
+            <p>Maintenance plan: <span class="font-bold">KSH 1,500/mo</span></p>
           </div>
         </div>
+        <p class="text-center text-gray-400 mt-4 text-sm">Annual hosting: KSH 5,500/year (save 2 months)</p>
       </div>
     </div>
   </section>
@@ -237,7 +258,7 @@
     </div>
   </section>
 
-  <!-- Updated Contact Section with Contract Download -->
+  <!-- Contact Section with Contract Download -->
   <section id="contact" class="py-20 relative overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="max-w-4xl mx-auto">
@@ -245,15 +266,15 @@
           <h2 class="text-3xl md:text-4xl font-bold mb-4">📞 Contact Us</h2>
           <p class="text-xl text-gray-400">Have a question? Need a custom quote?</p>
           
-          <!-- Contract Download Section -->
+          <!-- Contract Download -->
           <div class="mt-8 mb-12">
             <h3 class="text-2xl font-bold mb-4">Download Our Contract</h3>
             <div class="flex justify-center space-x-4">
               <a href="./src/downloads/Mboka_Digital_Contract.docx" download class="btn-primary px-6 py-2 rounded-lg font-medium">
-                <i class="fas fa-file-word mr-2"></i> Download DOCX
+                <i class="fas fa-file-word mr-2"></i> DOCX
               </a>
               <a href="./src/downloads/Mboka_Digital_Contract.pdf" download class="btn-primary px-6 py-2 rounded-lg font-medium">
-                <i class="fas fa-file-pdf mr-2"></i> Download PDF
+                <i class="fas fa-file-pdf mr-2"></i> PDF
               </a>
             </div>
           </div>
