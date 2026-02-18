@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // ===== BULLETPROOF MOBILE MENU TOGGLE =====
+  // ===== HAMBURGER MENU TOGGLE WITH PAGE LOCK =====
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-menu-close');
@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function openMenu() {
       mobileMenu.classList.add('open');
       hamburger.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // disable scrolling
     }
 
     function closeMenu() {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // restore scrolling
     }
 
     // Toggle on hamburger click
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Close when any menu link is clicked
+    // Close when any menu link is clicked and smooth scroll
     menuLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -79,12 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
         closeMenu();
       }
     });
-  } else {
-    console.error('Hamburger or mobile menu not found');
   }
 
-  // Smooth scrolling for desktop nav links (they already have click handlers,
-  // but this ensures they work even if not covered above)
+  // Smooth scrolling for desktop nav links
   document.querySelectorAll('nav a[href^="#"]:not(.mobile-menu-link)').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
