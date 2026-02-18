@@ -18,18 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Mobile menu toggle
-  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  // Mobile menu toggle (overlay)
+  const menuBtn = document.querySelector('.mobile-menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
-  mobileMenuButton.addEventListener('click', function() {
-    mobileMenu.classList.toggle('hidden');
-  });
-  // Close mobile menu on link click
-  document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-  });
+  const closeBtn = document.querySelector('.mobile-menu-close');
+  const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
-  // Smooth scrolling for nav links (only internal)
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden'; // prevent scrolling
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Smooth scrolling for nav links (desktop + mobile)
   document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -156,26 +164,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // disable floating shapes on mobile
     document.querySelector('.floating-shapes')?.style.setProperty('display', 'none');
   }
-});
-
-// Mobile menu open/close
-const menuBtn = document.querySelector('.mobile-menu-button');
-const mobileMenu = document.querySelector('.mobile-menu');
-const closeBtn = document.querySelector('.mobile-menu-close');
-
-function openMenu() {
-  mobileMenu.classList.remove('hidden');
-  document.body.style.overflow = 'hidden'; // prevent background scroll
-}
-function closeMenu() {
-  mobileMenu.classList.add('hidden');
-  document.body.style.overflow = '';
-}
-
-menuBtn.addEventListener('click', openMenu);
-closeBtn.addEventListener('click', closeMenu);
-
-// Close menu when a link is clicked (also handled by onclick in HTML, but ensure it works with both)
-document.querySelectorAll('.mobile-menu-link').forEach(link => {
-  link.addEventListener('click', closeMenu);
 });
