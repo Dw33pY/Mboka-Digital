@@ -335,55 +335,62 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== BULLETPROOF MOBILE MENU ===== */
-/* Hamburger button - clearly visible */
+/* ===== UNIQUE HAMBURGER WITH MORPHING X ===== */
 .hamburger {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: rgba(30, 64, 175, 0.3); /* blue tint */
-  border: 2px solid var(--mboka-orange);
-  border-radius: 12px;
+  background: rgba(30, 64, 175, 0.2);
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, var(--mboka-blue), var(--mboka-orange)) 1;
+  border-radius: 16px;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 1001; /* way above everything */
+  z-index: 1001;
 }
 .hamburger:hover {
-  background: rgba(30, 64, 175, 0.5);
+  background: rgba(30, 64, 175, 0.4);
   transform: scale(1.05);
 }
 .hamburger-line {
-  width: 24px;
+  width: 28px;
   height: 3px;
-  background-color: white;
+  background: linear-gradient(90deg, var(--mboka-blue), var(--mboka-orange));
   display: block;
   margin: 4px 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  border-radius: 3px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+              opacity 0.3s ease,
+              background 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+/* Morph into X when open */
 .hamburger.open .hamburger-line:nth-child(1) {
   transform: translateY(11px) rotate(45deg);
+  background: linear-gradient(90deg, #f97316, #1e40af); /* reversed gradient */
 }
 .hamburger.open .hamburger-line:nth-child(2) {
   opacity: 0;
+  transform: scale(0);
 }
 .hamburger.open .hamburger-line:nth-child(3) {
   transform: translateY(-11px) rotate(-45deg);
+  background: linear-gradient(90deg, #f97316, #1e40af);
 }
 
-/* Mobile menu overlay - uses display toggling */
+/* ===== MOBILE MENU OVERLAY (SIMPLE DISPLAY TOGGLE) ===== */
 .mobile-menu {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0f172a; /* dark background */
+  background-color: #0f172a; /* dark */
   backdrop-filter: blur(10px);
   z-index: 1000;
   flex-direction: column;
@@ -391,10 +398,10 @@ body {
   justify-content: center;
 }
 .mobile-menu.open {
-  display: flex; /* shown when open */
+  display: flex;
 }
 
-/* Close button inside menu - big and bright */
+/* Close button inside menu (optional, but we keep it) */
 .mobile-menu-close {
   position: absolute;
   top: 20px;
@@ -402,7 +409,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ef4444 !important; /* bright red */
+  background-color: #ef4444;
   color: white;
   border: 2px solid white;
   display: flex;
@@ -414,7 +421,7 @@ body {
   z-index: 1010;
 }
 .mobile-menu-close:hover {
-  background-color: #dc2626 !important;
+  background-color: #dc2626;
   transform: rotate(90deg);
 }
 
@@ -442,7 +449,7 @@ body {
   left: 0;
 }
 
-/* Social icons in menu - white */
+/* Social icons in menu */
 .mobile-menu .fab {
   color: white;
   font-size: 28px;
