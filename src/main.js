@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Mobile menu toggle with hamburger animation
+  // Mobile menu toggle with hamburger animation (FIXED)
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-menu-close');
@@ -30,14 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
       hamburger.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+
     function closeMenu() {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
       document.body.style.overflow = '';
     }
 
+    // Toggle on hamburger click
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
+      e.preventDefault();
       if (mobileMenu.classList.contains('open')) {
         closeMenu();
       } else {
@@ -45,14 +48,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+    // Close button inside menu
     if (closeBtn) {
       closeBtn.addEventListener('click', closeMenu);
     }
 
+    // Close when any menu link is clicked
     menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
   }
 
-  // Smooth scrolling for nav links (desktop + mobile)
+  // Smooth scrolling for nav links (offset increased to 80px)
   document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -60,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 70,
+          top: targetElement.offsetTop - 80, // matches hero padding-top
           behavior: 'smooth'
         });
         history.pushState(null, null, targetId);
