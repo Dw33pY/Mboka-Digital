@@ -29,9 +29,9 @@
 </head>
 <body class="font-poppins bg-gray-900 text-white overflow-x-hidden">
 
-  <!-- PRELOADER -->
+  <!-- PRELOADER (pulsing typewriter) -->
   <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900 transition-opacity duration-500">
-    <div class="spinner"></div>
+    <div class="loader-text">MBOKA DIGITAL ©</div>
   </div>
 
   <!-- Navbar -->
@@ -60,8 +60,8 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu Overlay (full-screen) -->
-  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center bg-gray-900 backdrop-blur-xl">
+  <!-- Mobile Menu Overlay (full-screen) - FIXED: removed 'flex' class -->
+  <div class="mobile-menu fixed inset-0 z-40 flex-col items-center justify-center bg-gray-900 backdrop-blur-xl">
     <!-- Menu links -->
     <div class="flex flex-col items-center space-y-8 text-3xl font-light">
       <a href="#home" class="mobile-menu-link hover:text-mboka-orange transition">Home</a>
