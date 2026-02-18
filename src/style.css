@@ -183,13 +183,13 @@ body {
   transform: rotate(15deg) scale(1.1);
 }
 
-/* Pricing Cards */
+/* Pricing Cards - updated to fix ribbon overlap and button clicks */
 .pricing-card {
   background: rgba(30, 41, 59, 0.7);
   border-radius: 16px;
-  padding: 30px;
+  padding: 0; /* remove padding, will be applied to inner content */
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* keep overflow hidden for ribbon clip, but ensure buttons are clickable */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.5s ease;
@@ -198,6 +198,15 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+.pricing-card-content {
+  padding: 30px; /* original padding moved here */
+  padding-top: 60px; /* extra space for ribbon */
+  position: relative;
+  z-index: 2; /* above the ::before pseudo-element */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .pricing-card.popular {
   border-color: var(--mboka-orange);
@@ -218,6 +227,8 @@ body {
   border-radius: 16px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none; /* allow clicks to pass through to buttons */
+  z-index: 1;
 }
 .pricing-card:hover::before {
   opacity: 1;
@@ -232,7 +243,15 @@ body {
   padding: 8px 0;
   color: white;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-  z-index: 1;
+  z-index: 10; /* above content */
+  pointer-events: none; /* clicks pass through to buttons */
+}
+
+/* Ensure buttons are clickable */
+.pricing-card .btn-primary {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
 }
 
 /* Feature Cards */
