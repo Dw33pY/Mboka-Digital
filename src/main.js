@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Mobile menu toggle with hamburger animation (FIXED)
+  // ===== BULLETPROOF MOBILE MENU TOGGLE =====
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-menu-close');
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle on hamburger click
     hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
       e.preventDefault();
+      e.stopPropagation();
       if (mobileMenu.classList.contains('open')) {
         closeMenu();
       } else {
@@ -48,13 +48,30 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Close button inside menu
+    // Close button
     if (closeBtn) {
-      closeBtn.addEventListener('click', closeMenu);
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMenu();
+      });
     }
 
     // Close when any menu link is clicked
-    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, targetId);
+        }
+        closeMenu();
+      });
+    });
 
     // Close on escape key
     document.addEventListener('keydown', (e) => {
@@ -62,17 +79,20 @@ document.addEventListener('DOMContentLoaded', function() {
         closeMenu();
       }
     });
+  } else {
+    console.error('Hamburger or mobile menu not found');
   }
 
-  // Smooth scrolling for nav links (offset increased to 80px)
-  document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]').forEach(link => {
+  // Smooth scrolling for desktop nav links (they already have click handlers,
+  // but this ensures they work even if not covered above)
+  document.querySelectorAll('nav a[href^="#"]:not(.mobile-menu-link)').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 80, // matches hero padding-top
+          top: targetElement.offsetTop - 80,
           behavior: 'smooth'
         });
         history.pushState(null, null, targetId);
@@ -188,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
       hero.style.backgroundPositionY = window.pageYOffset * 0.3 + 'px';
     });
   } else {
-    // disable floating shapes on mobile
     document.querySelector('.floating-shapes')?.style.setProperty('display', 'none');
   }
 });
