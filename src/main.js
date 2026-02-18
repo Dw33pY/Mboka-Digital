@@ -24,18 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.querySelector('.mobile-menu-close');
   const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
-  function openMenu() {
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden'; // prevent scrolling
-  }
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  if (menuBtn && mobileMenu && closeBtn) {
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden'; // prevent scrolling
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-  menuBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-  menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+  }
 
   // Smooth scrolling for nav links (desktop + mobile)
   document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]').forEach(link => {
