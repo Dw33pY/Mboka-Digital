@@ -157,3 +157,25 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.floating-shapes')?.style.setProperty('display', 'none');
   }
 });
+
+// Mobile menu open/close
+const menuBtn = document.querySelector('.mobile-menu-button');
+const mobileMenu = document.querySelector('.mobile-menu');
+const closeBtn = document.querySelector('.mobile-menu-close');
+
+function openMenu() {
+  mobileMenu.classList.remove('hidden');
+  document.body.style.overflow = 'hidden'; // prevent background scroll
+}
+function closeMenu() {
+  mobileMenu.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+menuBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+
+// Close menu when a link is clicked (also handled by onclick in HTML, but ensure it works with both)
+document.querySelectorAll('.mobile-menu-link').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
