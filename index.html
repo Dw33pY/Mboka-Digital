@@ -14,14 +14,14 @@
   <meta property="og:image" content="./assets/og-image.jpg">
   <meta name="theme-color" content="#1e40af">
 
-  <!-- Favicon (replace with your own) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./favicon.png">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <!-- Tailwind (only for utilities – we keep it) -->
+  <!-- Tailwind utilities -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Custom Styles -->
@@ -34,7 +34,7 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- Navbar (glass, solid on scroll) -->
+  <!-- Navbar -->
   <nav class="navbar fixed top-0 left-0 w-full z-50 transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
       <div class="flex items-center">
@@ -55,28 +55,29 @@
         </button>
       </div>
     </div>
-  <!-- Mobile Menu Overlay (full-screen, premium) -->
-<div class="mobile-menu fixed inset-0 z-50 md:hidden hidden flex flex-col items-center justify-center bg-gray-900/95 backdrop-blur-xl transition-all duration-500 ease-in-out">
-  <!-- Close button -->
-  <button class="mobile-menu-close absolute top-6 right-6 p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition" aria-label="Close menu">
-    <i class="fas fa-times text-2xl"></i>
-  </button>
-  <!-- Menu links -->
-  <div class="flex flex-col items-center space-y-8 text-3xl font-light">
-    <a href="#home" class="mobile-menu-link hover:text-mboka-orange transition" onclick="closeMenu()">Home</a>
-    <a href="#services" class="mobile-menu-link hover:text-mboka-orange transition" onclick="closeMenu()">Services</a>
-    <a href="#pricing" class="mobile-menu-link hover:text-mboka-orange transition" onclick="closeMenu()">Pricing</a>
-    <a href="#contact" class="mobile-menu-link hover:text-mboka-orange transition" onclick="closeMenu()">Contact</a>
-  </div>
-  <!-- Optional social icons inside menu -->
-  <div class="flex space-x-6 mt-12">
-    <a href="#" class="text-gray-400 hover:text-mboka-blue transition"><i class="fab fa-facebook-f text-2xl"></i></a>
-    <a href="#" class="text-gray-400 hover:text-mboka-blue transition"><i class="fab fa-twitter text-2xl"></i></a>
-    <a href="#" class="text-gray-400 hover:text-mboka-blue transition"><i class="fab fa-instagram text-2xl"></i></a>
-    <a href="https://wa.me/254112718833" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
-  </div>
-</div>
   </nav>
+
+  <!-- Mobile Menu Overlay (full-screen, premium) -->
+  <div class="mobile-menu fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-900/95 backdrop-blur-xl transition-transform duration-500 ease-in-out translate-y-[-100%]">
+    <!-- Close button -->
+    <button class="mobile-menu-close absolute top-6 right-6 p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition" aria-label="Close menu">
+      <i class="fas fa-times text-2xl"></i>
+    </button>
+    <!-- Menu links -->
+    <div class="flex flex-col items-center space-y-8 text-3xl font-light">
+      <a href="#home" class="mobile-menu-link hover:text-mboka-orange transition">Home</a>
+      <a href="#services" class="mobile-menu-link hover:text-mboka-orange transition">Services</a>
+      <a href="#pricing" class="mobile-menu-link hover:text-mboka-orange transition">Pricing</a>
+      <a href="#contact" class="mobile-menu-link hover:text-mboka-orange transition">Contact</a>
+    </div>
+    <!-- Social icons inside menu -->
+    <div class="flex space-x-6 mt-12">
+      <a href="#" class="text-gray-400 hover:text-mboka-blue transition"><i class="fab fa-facebook-f text-2xl"></i></a>
+      <a href="#" class="text-gray-400 hover:text-mboka-blue transition"><i class="fab fa-twitter text-2xl"></i></a>
+      <a href="#" class="text-gray-400 hover:text-mboka-blue transition"><i class="fab fa-instagram text-2xl"></i></a>
+      <a href="https://wa.me/254112718833" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section min-h-screen flex items-center relative overflow-hidden">
@@ -153,7 +154,7 @@
     <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
   </section>
 
-  <!-- Pricing Section (revised) -->
+  <!-- Pricing Section -->
   <section id="pricing" class="py-20 bg-gray-800 relative">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="text-center mb-16">
@@ -400,6 +401,12 @@
         </div>
       </div>
       
+      <!-- Optional quick contact line (you can keep or remove) -->
+      <div class="text-center text-gray-500 text-sm mt-6">
+        <i class="fas fa-phone-alt mr-2"></i> +254 112 271 833  |  
+        <i class="fas fa-envelope mr-2 ml-2"></i> mbokadigital254@gmail.com
+      </div>
+
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
         <p>&copy; 2025 Mboka Digital. All rights reserved.</p>
       </div>
